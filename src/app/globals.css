@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Simple utility for header nav links */
+.nav-link {
+  @apply inline-flex items-center gap-1.5 rounded px-2 py-1 hover:bg-black/5 dark:hover:bg-white/10 transition;
+}
+
+/* Enter animations via Tailwind CSS v4 animate-in utility */
+.animate-in {
+  animation-duration: 500ms;
+  animation-fill-mode: both;
+}
