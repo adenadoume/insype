@@ -54,27 +54,8 @@ export function SiteNav() {
 
   return (
     <>
-      {/* Desktop nav (wrap and shrink) */}
-      <nav className="ml-auto hidden items-center gap-2 text-sm md:flex md:flex-wrap md:max-w-[70%]">
-        {links.map(({ href, label, icon: Icon }) => (
-          <Link key={href} href={href} className="nav-link whitespace-nowrap">
-            <Icon className="h-4 w-4" /> {label}
-          </Link>
-        ))}
-        <span className="mx-1 opacity-40">|</span>
-        {isEnglish ? (
-          <Link href={toggleHref} className="inline-flex items-center gap-1 rounded border px-1.5 py-1 text-xs shadow-sm hover:bg-black/5 dark:hover:bg-white/10">
-            <Image src="/img/flag_gr.gif" alt="EL" width={16} height={12} /> EL
-          </Link>
-        ) : (
-          <Link href={toggleHref} className="inline-flex items-center gap-1 rounded border px-1.5 py-1 text-xs shadow-sm hover:bg-black/5 dark:hover:bg-white/10">
-            <Image src="/img/flag_en.gif" alt="EN" width={16} height={12} /> EN
-          </Link>
-        )}
-      </nav>
-
-      {/* Mobile menu button */}
-      <button aria-label="Menu" className="ml-auto md:hidden nav-link" onClick={() => setOpen(!open)}>
+      {/* Menu button (always visible) */}
+      <button aria-label="Menu" className="ml-auto nav-link" onClick={() => setOpen(!open)}>
         {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </button>
 
