@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans, Inter } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
-import { SiteNav } from "./_components/Nav";
+import { HeaderNav, SideNav } from "./_components/Nav";
 import "./globals.css";
 
 const notoSans = Noto_Sans({
@@ -33,12 +33,15 @@ function Header() {
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-white/70 to-white/30 dark:from-neutral-900/80 dark:to-neutral-900/40" />
-        <div className="relative mx-auto flex max-w-6xl items-center gap-4 px-4 py-3">
+        <div className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <Link href="/" className="group flex items-center gap-3">
             <img src="/img/logo.gif" alt="Logo" className="h-12 w-12 rounded-sm shadow-sm object-contain" />
-            <span className="text-sm font-semibold tracking-wide group-hover:opacity-90 transition">Institute of Modern Education</span>
+            <div>
+              <div className="text-sm font-semibold tracking-wide group-hover:opacity-90 transition">Institute of Modern Education</div>
+              <div className="text-xs text-gray-600">Medical Day Care Center</div>
+            </div>
           </Link>
-          <SiteNav />
+          <HeaderNav />
         </div>
       </div>
     </header>
@@ -66,9 +69,12 @@ export default function RootLayout({
     <html lang="el" suppressHydrationWarning>
       <body className={`${notoSans.variable} ${inter.variable} min-h-dvh bg-[url('/img/common/top_body_bg.jpg')] bg-fixed bg-top bg-no-repeat text-neutral-900 antialiased dark:text-neutral-100`}>
         <Header />
-        <main className="mx-auto max-w-6xl px-4 py-10 animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
-          {children}
-        </main>
+        <div className="flex">
+          <SideNav />
+          <main className="flex-1 px-4 py-10 animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
+            {children}
+          </main>
+        </div>
         <Footer />
       </body>
     </html>
