@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans, Inter } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
-import { HeaderNav, SideNav } from "./_components/Nav";
+import { HeaderNav, HorizontalNav } from "./_components/Nav";
 import "./globals.css";
 
 const notoSans = Noto_Sans({
@@ -50,10 +50,23 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="mt-16 border-t border-black/5 bg-white/50 py-6 text-xs text-neutral-600 backdrop-blur dark:border-white/10 dark:bg-neutral-900/50 dark:text-neutral-300">
-      <div className="mx-auto max-w-6xl px-4">
-        <p>
-          © 2009–{new Date().getFullYear()} Institute of Modern Education — Powered by Next.js
+    <footer className="clear-both text-xs" style={{
+      width: '900px',
+      height: '3.7em',
+      padding: '1.1em 0 0',
+      background: '#E1E1E1 url(/img/bg_foot.jpg) no-repeat scroll 0 0',
+      fontSize: '0.9em'
+    }}>
+      <div className="px-4 text-center">
+        <p className="mb-2">
+          <Link href="#" className="text-blue-600 hover:text-blue-800">Αρχή Σελίδας</Link> | 
+          <Link href="/" className="text-blue-600 hover:text-blue-800 ml-1">Αρχική Σελίδα</Link> | 
+          <Link href="/contact" className="text-blue-600 hover:text-blue-800 ml-1">Επικοινωνία</Link> | 
+          <Link href="/sitemap" className="text-blue-600 hover:text-blue-800 ml-1">Sitemap</Link>
+        </p>
+        <p className="font-bold">
+          <strong>Copyright © 2009 Ινστιτούτο Σύγχρονης Παιδαγωγικής | All Rights Reserved</strong> | 
+          Powered by&nbsp;<Link href="mailto:mexili.t@gmail.com" className="text-blue-600 hover:text-blue-800">T.M.</Link>
         </p>
       </div>
     </footer>
@@ -67,15 +80,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="el" suppressHydrationWarning>
-      <body className={`${notoSans.variable} ${inter.variable} min-h-dvh bg-[url('/img/common/top_body_bg.jpg')] bg-fixed bg-top bg-no-repeat text-neutral-900 antialiased dark:text-neutral-100`}>
-        <Header />
-        <div className="flex">
-          <SideNav />
-          <main className="flex-1 px-4 py-10 animate-in fade-in-50 slide-in-from-bottom-2 duration-500">
+      <body className={`${notoSans.variable} ${inter.variable} min-h-dvh text-neutral-900 antialiased`} style={{ 
+        backgroundColor: 'rgb(171,195,173)', 
+        fontFamily: 'verdana,arial,sans-serif'
+      }}>
+        <div className="max-w-4xl mx-auto bg-white" style={{ width: '900px', marginTop: '0px', marginBottom: '10px' }}>
+          <Header />
+          <HorizontalNav />
+          <main className="px-4 py-10 animate-in fade-in-50 slide-in-from-bottom-2 duration-500" style={{
+            background: 'transparent url(/img/bg_main_withnav.jpg) top left repeat-y',
+            paddingBottom: '30px',
+            minHeight: '500px'
+          }}>
             {children}
           </main>
+          <Footer />
         </div>
-        <Footer />
       </body>
     </html>
   );

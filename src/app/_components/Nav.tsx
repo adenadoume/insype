@@ -31,7 +31,7 @@ export function HeaderNav() {
   );
 }
 
-export function SideNav() {
+export function HorizontalNav() {
   const pathname = usePathname() || "/";
   const isEnglish = pathname === "/en" || pathname.startsWith("/en/");
   const prefix = isEnglish ? "/en" : "";
@@ -61,26 +61,37 @@ export function SideNav() {
       ];
 
   return (
-    <nav className="w-48 min-w-48 bg-gray-50 p-4 border-r">
-      <ul className="space-y-2">
-        {links.map(({ href, label }) => {
-          const isActive = pathname === href || (href !== `${prefix}/` && pathname.startsWith(href));
-          return (
-            <li key={href}>
-              <Link 
-                href={href} 
-                className={`block px-3 py-2 text-sm rounded-md transition-colors ${
-                  isActive 
-                    ? "bg-blue-100 text-blue-800 font-medium" 
-                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                }`}
-              >
-                {label}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+    <nav className="w-full border-b" style={{ 
+      backgroundColor: 'rgb(220,220,220)', 
+      backgroundImage: 'url(/img/bg_head_bottom_nav.jpg)',
+      backgroundRepeat: 'repeat-x',
+      color: 'rgb(75,75,75)'
+    }}>
+      <div className="container mx-auto px-4">
+        <ul className="flex flex-wrap items-center justify-center gap-1">
+          {links.map(({ href, label }) => {
+            const isActive = pathname === href || (href !== `${prefix}/` && pathname.startsWith(href));
+            return (
+              <li key={href} className="border-r border-gray-400 last:border-r-0">
+                <Link 
+                  href={href} 
+                  className={`block px-3 py-2 text-sm font-medium transition-colors hover:bg-gray-300 hover:text-blue-800 ${
+                    isActive 
+                      ? "text-blue-800 bg-gray-300" 
+                      : "text-blue-600"
+                  }`}
+                  style={{
+                    color: isActive ? 'rgb(42,90,138)' : 'rgb(70,122,167)',
+                    textDecoration: 'none'
+                  }}
+                >
+                  {label}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </nav>
   );
 }
