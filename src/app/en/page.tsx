@@ -9,6 +9,11 @@ export default function HomeEn() {
             self-care, social, cognitive and emotional development to achieve the maximum abilities
             for independent living.
           </p>
+          <p className="text-neutral-600 dark:text-neutral-300">
+            In February 2008 the Institute moved to a modern space at 25 Teo Street in Athens and
+            is licensed as a Day Care Centre, offering optimal therapeutic services in a more
+            normalized environment for both the client and the family.
+          </p>
           <div className="flex flex-wrap gap-3 text-sm">
             <a href="/en/cases" className="rounded-md bg-neutral-900 px-3 py-1.5 text-white shadow hover:opacity-90 dark:bg-white dark:text-neutral-900">Cases</a>
             <a href="/en/services" className="rounded-md border px-3 py-1.5 hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/10">Services</a>

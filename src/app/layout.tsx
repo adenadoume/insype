@@ -2,17 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans, Inter } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Home,
-  Stethoscope,
-  Briefcase,
-  Users,
-  Mail,
-  Link as LinkIcon,
-  Images,
-  Map as MapIcon,
-  ListTree,
-} from "lucide-react";
+import { SiteNav } from "./_components/Nav";
 import "./globals.css";
 
 const notoSans = Noto_Sans({
@@ -48,24 +38,7 @@ function Header() {
             <Image src="/img/logo.gif" alt="Logo" width={42} height={42} className="rounded-sm shadow-sm" />
             <span className="text-sm font-semibold tracking-wide group-hover:opacity-90 transition">Institute of Modern Education</span>
           </Link>
-          <nav className="ml-auto hidden items-center gap-4 text-sm md:flex">
-            <Link href="/" className="nav-link"><Home className="h-4 w-4" />Αρχική</Link>
-            <Link href="/cases" className="nav-link"><Stethoscope className="h-4 w-4" />Περιστατικά</Link>
-            <Link href="/services" className="nav-link"><Briefcase className="h-4 w-4" />Υπηρεσίες</Link>
-            <Link href="/personnel" className="nav-link"><Users className="h-4 w-4" />Προσωπικό</Link>
-            <Link href="/contact" className="nav-link"><Mail className="h-4 w-4" />Επικοινωνία</Link>
-            <Link href="/links" className="nav-link"><LinkIcon className="h-4 w-4" />Σύνδεσμοι</Link>
-            <Link href="/gallery" className="nav-link"><Images className="h-4 w-4" />Φωτογραφίες</Link>
-            <Link href="/map" className="nav-link"><MapIcon className="h-4 w-4" />Χάρτης</Link>
-            <Link href="/sitemap" className="nav-link"><ListTree className="h-4 w-4" />Sitemap</Link>
-            <span className="mx-1 opacity-40">|</span>
-            <Link href="/en" className="inline-flex items-center gap-1 rounded border px-1.5 py-1 text-xs shadow-sm hover:bg-black/5 dark:hover:bg-white/10">
-              <Image src="/img/flag_en.gif" alt="EN" width={16} height={12} /> EN
-            </Link>
-            <Link href="/" className="inline-flex items-center gap-1 rounded border px-1.5 py-1 text-xs shadow-sm hover:bg-black/5 dark:hover:bg-white/10">
-              <Image src="/img/flag_gr.gif" alt="EL" width={16} height={12} /> EL
-            </Link>
-          </nav>
+          <SiteNav />
         </div>
       </div>
     </header>

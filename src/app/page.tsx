@@ -10,6 +10,10 @@ export default function Home() {
             αυτοεξυπηρέτησης, κοινωνικών, γνωστικών και συναισθηματικών δεξιοτήτων ώστε να
             επιτευχθούν οι μέγιστες δυνατότητες για αυτόνομη διαβίωση.
           </p>
+          <p className="text-neutral-600 dark:text-neutral-300">
+            Σε συνεργασία με το <a href="#" className="underline">Ερευνητικό και Ακαδημαϊκό Ινστιτούτο Αθηνών</a>
+            διεξάγουμε έρευνα για την αξιολόγηση υπηρεσιών και την ανάπτυξη δεικτών έκβασης.
+          </p>
           <div className="flex flex-wrap gap-3 text-sm">
             <a href="/cases" className="rounded-md bg-neutral-900 px-3 py-1.5 text-white shadow hover:opacity-90 dark:bg-white dark:text-neutral-900">Περιστατικά</a>
             <a href="/services" className="rounded-md border px-3 py-1.5 hover:bg-black/5 dark:border-white/20 dark:hover:bg:white/10">Υπηρεσίες</a>
