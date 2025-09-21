@@ -35,3 +35,12 @@ body {
   animation-duration: 500ms;
   animation-fill-mode: both;
 }
+
+/* Full-screen sliding panel animation */
+.menu-panel {
+  transform: translateY(100%);
+  transition: transform 300ms ease-in-out;
+}
+.menu-panel.open {
+  transform: translateY(0%);
+}

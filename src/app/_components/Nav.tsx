@@ -59,37 +59,38 @@ export function SiteNav() {
         {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </button>
 
-      {/* Mobile sheet */}
-      {open && (
-        <div className="fixed inset-0 z-50 bg-black/30 md:hidden" onClick={() => setOpen(false)}>
-          <div className="absolute right-0 top-0 h-full w-72 bg-white p-4 shadow-xl dark:bg-neutral-900" onClick={(e) => e.stopPropagation()}>
-            <div className="mb-4 flex items-center justify-between">
-              <span className="text-sm font-semibold">Navigation</span>
-              <button aria-label="Close" className="nav-link" onClick={() => setOpen(false)}>
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-            <div className="flex flex-col gap-1 text-sm">
-              {links.map(({ href, label, icon: Icon }) => (
-                <Link key={href} href={href} className="nav-link" onClick={() => setOpen(false)}>
-                  <Icon className="h-4 w-4" /> {label}
+      {/* Full-screen menu panel */}
+      <div className={`fixed inset-0 z-50 md:hidden ${open ? "pointer-events-auto" : "pointer-events-none"}`}>
+        {/* Background */}
+        <div className={`absolute inset-0 bg-white dark:bg-neutral-900`} onClick={() => setOpen(false)} />
+        {/* Sliding content */}
+        <div className={`menu-panel ${open ? "open" : ""} absolute inset-0 p-6 overflow-y-auto`} onClick={(e) => e.stopPropagation()}>
+          <div className="mb-6 flex items-center justify-between">
+            <span className="text-base font-semibold">Menu</span>
+            <button aria-label="Close" className="nav-link" onClick={() => setOpen(false)}>
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+          <div className="flex flex-col gap-2 text-base">
+            {links.map(({ href, label, icon: Icon }) => (
+              <Link key={href} href={href} className="nav-link py-3" onClick={() => setOpen(false)}>
+                <Icon className="h-5 w-5" /> {label}
+              </Link>
+            ))}
+            <div className="mt-4 border-t pt-4">
+              {isEnglish ? (
+                <Link href={toggleHref} className="nav-link py-3" onClick={() => setOpen(false)}>
+                  <Image src="/img/flag_gr.gif" alt="EL" width={16} height={12} /> Ελληνικά
                 </Link>
-              ))}
-              <div className="mt-2 border-t pt-2">
-                {isEnglish ? (
-                  <Link href={toggleHref} className="nav-link" onClick={() => setOpen(false)}>
-                    <Image src="/img/flag_gr.gif" alt="EL" width={16} height={12} /> Ελληνικά
-                  </Link>
-                ) : (
-                  <Link href={toggleHref} className="nav-link" onClick={() => setOpen(false)}>
-                    <Image src="/img/flag_en.gif" alt="EN" width={16} height={12} /> English
-                  </Link>
-                )}
-              </div>
+              ) : (
+                <Link href={toggleHref} className="nav-link py-3" onClick={() => setOpen(false)}>
+                  <Image src="/img/flag_en.gif" alt="EN" width={16} height={12} /> English
+                </Link>
+              )}
             </div>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 }

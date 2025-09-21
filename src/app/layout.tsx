@@ -35,7 +35,7 @@ function Header() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/70 to-white/30 dark:from-neutral-900/80 dark:to-neutral-900/40" />
         <div className="relative mx-auto flex max-w-6xl items-center gap-4 px-4 py-3">
           <Link href="/" className="group flex items-center gap-3">
-            <img src="/img/logo.gif" alt="Logo" className="h-9 w-auto rounded-sm shadow-sm" />
+            <img src="/img/logo.gif" alt="Logo" className="h-12 w-12 rounded-sm shadow-sm object-contain" />
             <span className="text-sm font-semibold tracking-wide group-hover:opacity-90 transition">Institute of Modern Education</span>
           </Link>
           <SiteNav />
