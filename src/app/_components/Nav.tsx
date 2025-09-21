@@ -55,14 +55,14 @@ export function SiteNav() {
   return (
     <>
       {/* Menu button (always visible) */}
-      <button aria-label="Menu" className="ml-auto nav-link" onClick={() => setOpen(!open)}>
+      <button aria-label="Menu" aria-expanded={open} className="ml-auto nav-link" onClick={() => setOpen(!open)}>
         {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </button>
 
       {/* Full-screen menu panel */}
-      <div className={`fixed inset-0 z-50 md:hidden ${open ? "pointer-events-auto" : "pointer-events-none"}`}>
+      <div className={`${open ? "fixed" : "hidden"} inset-0 z-[1000] md:hidden`}>
         {/* Background */}
-        <div className={`absolute inset-0 bg-white dark:bg-neutral-900`} onClick={() => setOpen(false)} />
+        <div className="absolute inset-0 bg-white dark:bg-neutral-900" onClick={() => setOpen(false)} />
         {/* Sliding content */}
         <div className={`menu-panel ${open ? "open" : ""} absolute inset-0 p-6 overflow-y-auto`} onClick={(e) => e.stopPropagation()}>
           <div className="mb-6 flex items-center justify-between">
